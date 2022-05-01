@@ -14,17 +14,14 @@
                             <div class="card-header py-4">
                                 <h3 class="card-title text-white fs-3">@yield('title')</h3>
                                 <div class="card-tools">
-                                    <button type="button" class="btn btn-tool" data-card-widget="collapse"
-                                        title="Collapse">
+                                    <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                                         <i class="fas fa-minus text-white"></i>
                                     </button>
                                 </div>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
-                                <table
-                                    class="table table-bordered table-striped  dtr-inline table-hover data-table w-100"
-                                    id="">
+                                <table class="table table-bordered table-striped  dtr-inline table-hover data-table w-100" id="">
                                     <thead>
                                         <tr>
                                             @yield('tr')
@@ -50,8 +47,7 @@
                                     </div>
                                     <div class="modal-footer flex-center">
                                         <a class="btn btn-outline-danger _delete">Yes</a>
-                                        <a type="button" class="btn btn-danger waves-effect"
-                                            data-bs-dismiss="modal">No</a>
+                                        <a type="button" class="btn btn-danger waves-effect" data-bs-dismiss="modal">No</a>
                                     </div>
                                 </div>
                             </div>
@@ -73,11 +69,11 @@
 
 <script>
     var Toast = Swal.mixin({
-          toast: true,
-          position: "top-end",
-          showConfirmButton: false,
-          timer: 3000,
-        });
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 3000,
+    });
     var check;
     $(function() {
         $.ajaxSetup({
@@ -85,32 +81,57 @@
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
-        
+
         var table = $('.data-table').DataTable({
             dom: 'Bfrtip',
-            buttons: [
-                {
-                    extend: 'excelHtml5',
-                    text: 'data to excel',
-                    exportOptions: {
-                        columns: [ 0,1,2 ],
-                            modifier: {
-                                page: 'current'
-                            }
-                        }
+            buttons: [{
+                extend: 'excelHtml5',
+                text: 'Excel',
+                exportOptions: {
+                    columns: [0, 1, 2],
+                    modifier: {
+                        page: 'current'
+                    }
                 }
-            ],
+            }, {
+                extend: 'csvHtml5',
+                text: 'Csv',
+                exportOptions: {
+                    columns: [4],
+                    modifier: {
+                        page: 'current'
+                    }
+                }
+            }, {
+                extend: 'copyHtml5',
+                text: 'Copy',
+                exportOptions: {
+                    columns: [0, 1, 2],
+                    modifier: {
+                        page: 'current'
+                    }
+                }
+            }, {
+                extend: 'pdfHtml5',
+                text: 'Pdf',
+                exportOptions: {
+                    columns: [0, 1, 2],
+                    modifier: {
+                        page: 'current'
+                    }
+                }
+            }],
             processing: true,
             serverSide: true,
             ajax: route,
             columns: columnsArray,
-            
+
         });
         var id;
         $('body').on('click', '.delete', function() {
             id = $(this).data("id");
-            $('body').one('click', '._delete',function (event) {
-                
+            $('body').one('click', '._delete', function(event) {
+
                 $.ajax({
                     url: url + id,
                     type: "DELETE",
@@ -121,11 +142,11 @@
                     success: (response) => {
                         $('#deleteAlert').modal('hide');
                         Toast.fire({
-                            icon: response.message  ? "success" : "error", 
-                            title: response.message ? "this row deleted Successfully":"Sorry Can't delete this Row right Now",
+                            icon: response.message ? "success" : "error",
+                            title: response.message ? "this row deleted Successfully" : "Sorry Can't delete this Row right Now",
                         });
                         table.ajax.reload();
-                
+
                     }
                 });
             });
@@ -142,9 +163,9 @@
                 },
                 success: (response) => {
                     Toast.fire({
-                            icon:  response.message  ? "success" : "error",
-                            title: response.message ? "You Banned This Manager Successfully":"Sorry Can't Ban This User",
-                        });
+                        icon: response.message ? "success" : "error",
+                        title: response.message ? "You Banned This Manager Successfully" : "Sorry Can't Ban This User",
+                    });
                     table.ajax.reload();
                 }
             });
@@ -161,9 +182,9 @@
                 },
                 success: (response) => {
                     Toast.fire({
-                            icon: response.message  ? "success" : "error",
-                            title: response.message ? "You UnBanned This Manager Successfully":"Sorry can't unban this User",
-                        });
+                        icon: response.message ? "success" : "error",
+                        title: response.message ? "You UnBanned This Manager Successfully" : "Sorry can't unban this User",
+                    });
                     table.ajax.reload();
                 }
             });
@@ -171,14 +192,14 @@
     });
 </script>
 @if($errors->any())
-    <script>
-        $(function() {
-            Toast.fire({
-                icon: "warning",
-                title: "sorry can\'t edit running session",
-            });
+<script>
+    $(function() {
+        Toast.fire({
+            icon: "warning",
+            title: "sorry can\'t edit running session",
+        });
     });
-    </script>
+</script>
 @endif
 @yield('script')
 @endsection

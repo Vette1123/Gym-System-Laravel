@@ -222,11 +222,6 @@
                             </ul>
                         </li>
 
-
-
-
-
-
                         @hasanyrole('admin|cityManager')
 
                         <li class="nav-item menu-close">
@@ -354,10 +349,7 @@
 
         <div class="content-wrapper">
             @yield('content')
-
         </div>
-
-
         <aside class="control-sidebar control-sidebar-dark">
             <div class="p-3">
                 <h5>Title</h5>
@@ -367,6 +359,7 @@
     </div>
 
     <script src="{{asset('js/app.js')}} "> </script>
+
     @yield('scripts')
 </body>
 

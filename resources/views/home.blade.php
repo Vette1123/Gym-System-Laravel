@@ -1,8 +1,5 @@
 @extends('layouts.master')
-
 @section('content')
-
-
 <section class="content home d-flex align-items-center">
     <div class="container ">
         <div class="row ">
