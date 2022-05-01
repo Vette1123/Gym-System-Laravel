@@ -39,16 +39,12 @@
 
 ### Installation
 
-1. Clone the repo
-    ```sh
-    git clone https://github.com/ahmedelshopaky/Laravel-Simple-Gym-System
-    ```
-2. Run this command to install dependencies
+1. Run this command to install dependencies
     ```sh
     composer update
     ```
-3. Configure your `.env` file
-4. Run this command to create an admin account
+2. Configure your `.env` file
+3. Run this command to create an admin account
     ```sh
     php artisan create:admin
     ```
