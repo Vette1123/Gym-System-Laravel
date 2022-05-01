@@ -4,7 +4,7 @@
     <div class="container ">
         <div class="row ">
             <div class="content">
-                <h1 class="text-center text-dark">Ready to Burn ?!</h1>
+                <h1 class="text-center text-dark">Ready to Burn Fat?, hh </h1>
             </div>
         </div>
     </div>
