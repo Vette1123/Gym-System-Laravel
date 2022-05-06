@@ -65,8 +65,6 @@
     <!-- /.content-wrapper -->
 </div>
 <!-- ./wrapper -->
-
-
 <script>
     var Toast = Swal.mixin({
         toast: true,
@@ -97,7 +95,7 @@
                 extend: 'csvHtml5',
                 text: 'Csv',
                 exportOptions: {
-                    columns: [4],
+                    columns: [0, 1, 2],
                     modifier: {
                         page: 'current'
                     }

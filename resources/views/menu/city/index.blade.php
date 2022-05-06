@@ -12,12 +12,17 @@ Cities
 
 @section('script')
 <script>
-  let columnsArray=[
-    {data : 'city_id'},
-    {data : 'city_name'},
-    {data : 'city_manager_name'},
-  ],
+  let columnsArray = [{
+        data: 'city_id'
+      },
+      {
+        data: 'city_name'
+      },
+      {
+        data: 'city_manager_name'
+      },
+    ],
     route = "{{ route('cities.index') }}",
-    url = "/cities/";   
+    url = "/cities/";
 </script>
 @endsection

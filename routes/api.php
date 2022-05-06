@@ -23,15 +23,15 @@ use Illuminate\Support\Facades\Notification;
 |
 */
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/user', function (Request $request) {
+Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
     return response([
         'your data' => $request->user(),
     ]);
 });
 
-Route::post('register', [AuthController::class, 'register']);
+Route::post('/register', [AuthController::class, 'register']);
 
-Route::post('login', [AuthController::class, 'login']);
+Route::post('/login', [AuthController::class, 'login']);
 
 
 Route::get('/email/verify', function () {

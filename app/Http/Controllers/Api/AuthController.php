@@ -21,7 +21,7 @@ class AuthController extends Controller
 
         $img = request()->file('avatar_image');
         $name = 'img-' . uniqid() . '.' . $img->getClientOriginalExtension();
-        
+
         $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
@@ -31,8 +31,8 @@ class AuthController extends Controller
             'role' => 'gym_member',
         ]);
 
-        $img->move(public_path('images/users'),$name);
-        
+        $img->move(public_path('images/users'), $name);
+
         $gymMember = GymMember::create([
             'user_id' => $user->id,
             'gender' => $data['gender'],
@@ -64,17 +64,17 @@ class AuthController extends Controller
 
         $user = User::where('email', $data['email'])->first();
 
-        if (! $user || ! Hash::check($request->password, $user->password)) {
+        if (!$user || !Hash::check($request->password, $user->password)) {
             throw ValidationException::withMessages([
                 'email' => ['The provided credentials are incorrect.'],
             ]);
         }
-        
+
         $token = $user->createToken($request->email)->plainTextToken;
 
         GymMember::where('user_id', $user->id)
             ->update(['last_login' => Carbon::now()]);
-        
+
         return [
             'message' => 'Welcome you are logged in',
             'token' => $token,

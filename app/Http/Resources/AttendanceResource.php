@@ -22,9 +22,9 @@ class AttendanceResource extends JsonResource
             'gym_member_name' => $this->gym_member->user->name,
             'training_session_name' => $this->training_session->name,
             'training_session_starts_at' => $this->training_session->starts_at,
-            'status' => $this->training_session->starts_at < now() 
-                    && $this->training_session->finishes_at > now() 
-                    ? 'Active Now' : 'Not Active',
+            'status' => $this->training_session->starts_at < now()
+                && $this->training_session->finishes_at > now()
+                ? 'Active Now' : 'Not Active',
             'gym_name' => $this->training_session->gym->name,
             'city' => $this->training_session->gym->city->name,
             'id' => $this->id
