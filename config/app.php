@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Sparta Gym'),
+    'name' => env('APP_NAME', 'Sadge Gym'),
 
     /*
     |--------------------------------------------------------------------------
@@ -200,7 +200,7 @@ return [
     'aliases' => Facade::defaultAliases()->merge([
         // 'DataTables' => Yajra\DataTables\Facades\DataTables::class,
         'Stripe' => Cartalyst\Stripe\Laravel\Facades\Stripe::class,
-        
+
     ])->toArray(),
 
 ];
