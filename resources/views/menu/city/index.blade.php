@@ -8,6 +8,7 @@ Cities
 <th>ID</th>
 <th>City</th>
 <th>City Manager</th>
+<th>Gym Name</th>
 @endsection
 
 @section('script')
@@ -20,6 +21,9 @@ Cities
       },
       {
         data: 'city_manager_name'
+      },
+      {
+        data: 'gym_name'
       },
     ],
     route = "{{ route('cities.index') }}",
