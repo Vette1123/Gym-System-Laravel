@@ -7,7 +7,7 @@
     <img src="public/images/gym-logo.jpg" alt="Logo" width="150" />
   </a>
 
-  <h3 align="center">Simple Gym System</h3>
+  <h3 align="center">Larvel Gym System</h3>
 
   <p align="center">
     A Laravel PHP Web Application based on rules like Admin, City Manager, Gym Manager. All features are explained below.

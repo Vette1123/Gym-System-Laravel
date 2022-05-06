@@ -142,7 +142,18 @@
                         </div>
                     </div>
                 </div>
+                <div class="mt-3 pb-3 mb-3 text-center">
+                    <div class="image">
+                        <img src="{{asset('/images/users/'.auth()->user()->avatar_image)}}" class="img-circle elevation-2 img-fluid w-50 mx-3" alt="User Image">
+                    </div>
+                    <div class="media-body mt-2 mb-0">
+                        <h6 class="dropdown-item-title text-light" style="font-size: 25px">
+                            {{ auth()->user()->name }}
+                        </h6>
+                    </div>
+                </div>
 
+                <hr>
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         @role('admin')

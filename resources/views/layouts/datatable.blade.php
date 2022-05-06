@@ -144,7 +144,6 @@
                             title: response.message ? "this row deleted Successfully" : "Sorry Can't delete this Row right Now",
                         });
                         table.ajax.reload();
-
                     }
                 });
             });
