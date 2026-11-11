@@ -10,7 +10,7 @@
   <h3 align="center">Larvel Gym System</h3>
 
   <p align="center">
-    A Laravel PHP Web Application based on rules like Admin, City Manager, Gym Manager. All features are explained below.
+    A Laravel PHP Web Application based on roles like Admin, City Manager, Gym Manager. All features are explained below.
   </p>
 </div>
 
